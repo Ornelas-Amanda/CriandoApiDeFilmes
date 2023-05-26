@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Filmes API</name>
+    </assembly>
+    <members>
+        <member name="M:Filmes_API.Controllers.FilmeController.AdicionaFilme(Filmes_API.Data.Dtos.CreateFilmeDto)">
+            <summary>
+            Adiciona filme ao banco de dados
+            </summary>    
+        </member>
+        <member name="M:Filmes_API.Controllers.FilmeController.RecuperaFilmes(System.Int32,System.Int32)">
+            <summary>
+            Retorna Todos os dados
+            </summary>    
+        </member>
+        <member name="M:Filmes_API.Controllers.FilmeController.RecuperaFilmePorId(System.Int32)">
+            <summary>
+            Retorna id especifico
+            </summary>  
+        </member>
+        <member name="M:Filmes_API.Controllers.FilmeController.AtualizaFilme(System.Int32,Filmes_API.Data.Dtos.UpdateFilmeDto)">
+            <summary>
+            Atualiza um filme 
+            </summary>  
+        </member>
+        <member name="M:Filmes_API.Controllers.FilmeController.AtualizaFilmeParcial(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Filmes_API.Data.Dtos.UpdateFilmeDto})">
+            <summary>
+            Atualiza Um campo de um id especifico
+            </summary>  
+        </member>
+        <member name="M:Filmes_API.Controllers.FilmeController.DeletaFilme(System.Int32)">
+            <summary>
+            Deleta um filme por id
+            </summary> 
+        </member>
+    </members>
+</doc>
