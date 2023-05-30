@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Filmes_API.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Filme_API.Models
 {
@@ -20,6 +21,8 @@ namespace Filme_API.Models
         [Required]
         [Range(70,600, ErrorMessage = "A duração so pode ser entre 70 e 600")]
         public int Duracao { get; set; }
-        
+
+        public virtual ICollection<Sessao> Sessoes { get; set; }
+
     }
 }

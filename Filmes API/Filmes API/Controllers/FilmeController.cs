@@ -2,6 +2,7 @@
 using Filme_API.Models;
 using Filmes_API.Data;
 using Filmes_API.Data.Dtos;
+using Filmes_API.Profiles;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -43,9 +44,16 @@ namespace Filmes_API.Controllers
         ///</summary>    
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip=0 , int take= 50)
+        public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip = 0,
+          [FromQuery] int take = 50,
+          [FromQuery] string? nomeCinema = null)
         {
-            return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take));
+            if (nomeCinema == null) {
+                return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take).ToList());
+            }
+
+             return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take).Where(filme => filme.Sessoes.Any(sessao => sessao.Cinema.Nome == nomeCinema)).ToList());
+
         }
 
         ///<summary>
